@@ -8,7 +8,7 @@
     .PARAMETER DelaySec
         The wait time (seconds) between the attempts
     .EXAMPLE
-        Invoke-BxRetryCommand -Maximum 3 -DelaySec 10 -ScriptBlock { Invoke-WebRequest -Uri "https://jobitno.prod.axponet.ch"  } -Verbose
+        Invoke-BxRetryCommand -Maximum 3 -DelaySec 10 -ScriptBlock { Invoke-WebRequest -Uri "https://api.thecatapi.com/v1/images" } -Verbose
 #>
 function Invoke-BxRetryCommand {
     [CmdletBinding()]

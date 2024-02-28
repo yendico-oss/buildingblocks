@@ -12,8 +12,8 @@ TODO
 ## Install module
 
 - Open a Powershell terminal
-- `Install-Module building-blocks` (from the Powershell Gallery)
-- `Import-Module building-blocks`
+- `Install-Module buildingblocks` (from the Powershell Gallery)
+- `Import-Module buildingblocks`
 
 ## How to use
 

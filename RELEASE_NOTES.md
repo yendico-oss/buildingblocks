@@ -1,4 +1,4 @@
-# Release Notes of Building-Blocks
+# Release Notes of Building Blocks
 
 ## 1.0.0
 

@@ -2,8 +2,6 @@
 
 Building blocks for higher level scripts and modules. Abstractions like retry logic and simple helper functions to minimize repetitive code in higher level components (scripts, modules, etc.)
 
-TODO
-
 ## Prerequesites
 
 - OS: Windows, Linux, Mac
@@ -14,10 +12,6 @@ TODO
 - Open a Powershell terminal
 - `Install-Module buildingblocks` (from the Powershell Gallery)
 - `Import-Module buildingblocks`
-
-## How to use
-
-TODO
 
 ## Sponsors
 

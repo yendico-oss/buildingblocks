@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: Build and publish
+      - name: Publish to PSGallery
         env:
           NUGET_KEY: ${{ secrets.PS_GALLERY_NUGET_KEY }}
         shell: pwsh

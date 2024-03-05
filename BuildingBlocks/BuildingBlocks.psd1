@@ -90,16 +90,16 @@ PrivateData = @{
         Tags = @("base64", "helpers", "retry")
 
         # A URL to the license for this module.
-        LicenseUri = 'https://github.com/yendico-oss/building-blocks/blob/main/LICENSE.txt'
+        LicenseUri = 'https://github.com/yendico-oss/buildingblocks/blob/main/LICENSE.txt'
 
         # A URL to the main website for this project.
-        ProjectUri = 'https://github.com/yendico-oss/building-blocks'
+        ProjectUri = 'https://github.com/yendico-oss/buildingblocks'
 
         # A URL to an icon representing this module.
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'https://github.com/yendico-oss/building-blocks/blob/main/RELEASE_NOTES.md'
+        ReleaseNotes = 'https://github.com/yendico-oss/buildingblocks/blob/main/RELEASE_NOTES.md'
 
         # Prerelease string of this module
         # Prerelease = ''

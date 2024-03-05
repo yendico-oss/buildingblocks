@@ -1,4 +1,4 @@
-# Building Blocks
+# Building Blocks (#BuildingBlocks)
 
 Building blocks for higher level scripts and modules. Abstractions like retry logic and simple helper functions to minimize repetitive code in higher level components (scripts, modules, etc.)
 

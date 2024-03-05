@@ -41,7 +41,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     permissions:
-      - contents: write
+      contents: write
     env:
       MODULE_VERSION: ${{needs.test.outputs.MODULE_VERSION}}
     steps:

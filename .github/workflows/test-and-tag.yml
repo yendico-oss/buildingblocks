@@ -33,7 +33,7 @@ jobs:
           if (-not $PsdFile.Description) { Throw "Please add module description 'Description' to definition file" }
           Write-Output "Test module version"
           Write-Output "Local Version=$($PsdFile.ModuleVersion)"
-          [void] git fetch --tags
+          [void](git fetch --tags)
           $ExistingTag = git tag --list $($PsdFile.ModuleVersion)
           if ($ExistingTag) { Throw "There is already a git tag with version $ExistingTag" }
           $RemoteModule = Find-Module -Repository PSGallery -Name $env:MODULE_NAME -RequiredVersion $PsdFile.ModuleVersion -ErrorAction SilentlyContinue

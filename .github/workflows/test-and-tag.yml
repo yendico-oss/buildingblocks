@@ -18,11 +18,12 @@ jobs:
         name: Perform module validation tests
         shell: pwsh
         run: |
-          Write-Host "Check if psd1 and psm1 files are there"
+          $ErrorActionPreference = 'Stop'
+          Write-Output "Test if psd1 and psm1 files are there"
           if (-Not (Test-Path -Path "$($env:GITHUB_WORKSPACE)/$($env:MODULE_NAME)/$($env:MODULE_NAME).psd1")) { Throw "psd1 (definition file) does not exist" }
           if (-Not (Test-Path -Path "$($env:GITHUB_WORKSPACE)/$($env:MODULE_NAME)/$($env:MODULE_NAME).psm1")) { Throw "psm1 (module file) does not exist" }
           Test-ModuleManifest -Path "$($env:GITHUB_WORKSPACE)/$($env:MODULE_NAME)/$($env:MODULE_NAME).psd1"
-          Write-Host "Check if definition file (psd1) contains important information"
+          Write-Output "Test if definition file (psd1) contains important information"
           $PsdFile = Import-PowerShellDataFile -Path "$($env:GITHUB_WORKSPACE)/$($env:MODULE_NAME)/$($env:MODULE_NAME).psd1"
           if (-not ($PsdFile.ModuleVersion -match '^\d+.\d+.\d+$')) { Throw "'ModuleVersion' doesnt match the version format (SEMVER). $($PsdFile.ModuleVersion)" }
           if (-not $PsdFile.ModuleVersion -or $PsdFile.ModuleVersion -eq "0.0.0") { Throw "Please add module version 'ModuleVersion' to definition file" }
@@ -31,7 +32,8 @@ jobs:
           if (-not $PsdFile.CompanyName) { Throw "Please add module company name 'CompanyName' to definition file" }
           if (-not $PsdFile.Copyright) { Throw "Please add module copyright 'Copyright' to definition file" }
           if (-not $PsdFile.Description) { Throw "Please add module description 'Description' to definition file" }
-          Write-Host "Local Version=$($PsdFile.ModuleVersion)"
+          Write-Output "Test module version"
+          Write-Output "Local Version=$($PsdFile.ModuleVersion)"
           $ExistingTag = git tag --list $($PsdFile.ModuleVersion)
           if ($ExistingTag) { Throw "There is already a git tag with version $ExistingTag" }
           $RemoteModule = Find-Module -Repository PSGallery -Name $env:MODULE_NAME -RequiredVersion $PsdFile.ModuleVersion -ErrorAction SilentlyContinue

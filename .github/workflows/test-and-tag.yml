@@ -40,6 +40,8 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      - contents: write
     env:
       MODULE_VERSION: ${{needs.test.outputs.MODULE_VERSION}}
     steps:

@@ -18,7 +18,6 @@ jobs:
         name: Perform module validation tests
         shell: pwsh
         run: |
-          $ErrorActionPreference = 'Stop'
           Write-Output "Test if psd1 and psm1 files are there"
           if (-Not (Test-Path -Path "$($env:GITHUB_WORKSPACE)/$($env:MODULE_NAME)/$($env:MODULE_NAME).psd1")) { Throw "psd1 (definition file) does not exist" }
           if (-Not (Test-Path -Path "$($env:GITHUB_WORKSPACE)/$($env:MODULE_NAME)/$($env:MODULE_NAME).psm1")) { Throw "psm1 (module file) does not exist" }
@@ -34,6 +33,7 @@ jobs:
           if (-not $PsdFile.Description) { Throw "Please add module description 'Description' to definition file" }
           Write-Output "Test module version"
           Write-Output "Local Version=$($PsdFile.ModuleVersion)"
+          git fetch --tags
           $ExistingTag = git tag --list $($PsdFile.ModuleVersion)
           if ($ExistingTag) { Throw "There is already a git tag with version $ExistingTag" }
           $RemoteModule = Find-Module -Repository PSGallery -Name $env:MODULE_NAME -RequiredVersion $PsdFile.ModuleVersion -ErrorAction SilentlyContinue

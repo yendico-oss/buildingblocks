@@ -37,7 +37,7 @@ jobs:
           echo "MODULE_VERSION=$($PsdFile.ModuleVersion)" >> $env:GITHUB_OUTPUT
   tag:
     name: Tag on main
-    if: github.ref == 'ref/head/main'
+    if: github.ref == 'refs/heads/main'
     needs: test
     runs-on: ubuntu-latest
     env:
